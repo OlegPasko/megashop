@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Product do
-  let!(:product) {@product = Product.create(name: 'Product title', price: 666.15)}
+  let!(:product) {@product = Product.create(id: 1, name: 'Product title', price: 666.15, category_id: 1)}
 
   context 'Necessary fields' do
     it { should respond_to(:name) }
@@ -32,6 +32,14 @@ describe Product do
     end
     describe 'when price is not fixnum' do
       before { @product.price = 'asdasd' }
+      it { should_not be_valid }
+    end
+    describe 'when price is negative' do
+      before { @product.price = -1 }
+      it { should_not be_valid }
+    end
+    describe 'when we have no category' do
+      before { @product.category_id = nil }
       it { should_not be_valid }
     end
   end
