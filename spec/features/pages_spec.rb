@@ -2,8 +2,9 @@
 require 'spec_helper'
 
 describe 'Pages' do
-  let(:product) { @product = Product.create(id: 1, name: 'Product title', price: 666.15) }
+  let(:product) { @product = Product.create(name: 'Product title', price: 666.15) }
   let(:shop_name) { 'Megashop' }
+  subject { @product }
 
   describe 'Home page' do
     before { visit root_path }
