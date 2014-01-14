@@ -11,7 +11,7 @@ describe 'Pages' do
       expect(page).to have_content('Товары')
     end
     it 'should have products listing' do
-      expect(page).to have_selector('a', text: @product.name)
+      expect(page).to have_selector('a', text: product.name)
     end
     it 'product link should lead to product page' do
       click_link @product.name

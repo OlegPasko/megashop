@@ -25,11 +25,22 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+# gem 'jbuilder', '~> 1.2'
+
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'carrierwave'
+gem 'rmagick'
+
+gem 'russian'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+end
+
+group :development do
+  gem 'thin'
+  gem 'quiet_assets'
 end
 
 group :doc do

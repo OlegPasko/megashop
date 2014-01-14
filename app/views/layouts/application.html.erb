@@ -8,7 +8,28 @@
 </head>
 <body>
 
-<%= yield %>
+
+<div class="header">
+  <div class="container_12">
+      <div class="grid_12">
+        <h3 class="title"><%= link_to 'Megashop', root_path %></h3>
+      </div>
+  </div>
+</div>
+<div class="menu">
+  <div class="container_12">
+    <div class="grid_12">
+      <%= link_to 'Все носки', root_path %>
+      <% Category.sorted.each do |category| %>
+        <%= link_to category.name, root_path(category: category.id) %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container_12">
+    <%= yield %>
+</div>
+
 
 </body>
 </html>

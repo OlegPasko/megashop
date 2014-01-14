@@ -13,7 +13,8 @@ describe Product do
   end
 
   describe 'should have right associations' do
-    it { should belongs_to(:category)}
+    t = Product.reflect_on_association(:category)
+    t.macro.should == :belongs_to
   end
 
   it { should be_valid }

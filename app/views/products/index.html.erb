@@ -1,0 +1,11 @@
+<div class="grid_12">
+    <h1>Товары</h1>
+</div>
+<div class="products">
+    <% @products.each do |product| %>
+      <div class="product grid_3">
+        <%= link_to image_tag(product.image_url(:thumb) || 'product_blank.gif'), product %>
+        <%= link_to product.name, product %>
+      </div>
+    <% end %>
+</div>
