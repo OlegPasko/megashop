@@ -1,11 +1,20 @@
 <div class="grid_12">
-    <h1>Товары</h1>
+    <h2>Товары</h2>
+    <div class="sorting">
+      <b>По имени:</b> (<%= link_to 'возр.', root_path(sort: 'name_asc') %>) (<%= link_to 'убыванию', root_path(sort: 'name_desc') %>)
+      <b>По цене:</b> (<%= link_to 'возр.', root_path(sort: 'price_asc') %>) (<%= link_to 'убыванию', root_path(sort: 'price_desc') %>)
+    </div>
 </div>
 <div class="products">
     <% @products.each do |product| %>
       <div class="product grid_3">
         <%= link_to image_tag(product.image_url(:thumb) || 'product_blank.gif'), product %>
         <%= link_to product.name, product %>
+        <div class="price">
+            <%= number_to_currency(product.price, precision: 2, unit: "грн.", separator: ",", delimiter: " ", format: "%n %u") %>
+        </div>
+        <%= link_to 'Добавить в корзину', '#', class: 'add_to_cart' %>
       </div>
     <% end %>
 </div>
+<%= will_paginate @products %>
