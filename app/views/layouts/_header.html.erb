@@ -10,5 +10,10 @@
           <%= submit_tag 'Найти!' %>
       <% end %>
     </div>
+    <div class="grid_4">
+      Корзина: # <%= current_cart.id %>
+      <br/>
+      В корзине: <%= current_cart.line_items.count %> <%= Russian.p(current_cart.line_items.count, "товар", "товара", "товаров") %>
+    </div>
   </div>
 </div>
