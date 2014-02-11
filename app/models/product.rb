@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   belongs_to :category
   has_many :line_items
+  has_many :comments
 
   validates_presence_of :name, :category_id
   validates_length_of :name, maximum: 200
